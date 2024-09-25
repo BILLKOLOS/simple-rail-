@@ -1,0 +1,28 @@
+<h1>Doctor Portal</h1>
+
+<% if @patients_count_by_date.any? %>
+  <h3>Patients Registered vs Days</h3>
+  <%= line_chart @patients_count_by_date %>
+<% else %>
+  <p>No patients registered yet.</p>
+<% end %>
+
+<h3>Registered Patients</h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Gender</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @patients.each do |patient| %>
+      <tr>
+        <td><%= patient.name %></td>
+        <td><%= patient.age %></td>
+        <td><%= patient.gender %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
